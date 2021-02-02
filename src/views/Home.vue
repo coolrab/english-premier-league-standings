@@ -141,7 +141,7 @@
                                 }
 
                             })
-                              this.$route.push('/team-matches')
+                              // this.$route.push('/team-matches')
                             
                             // after pushing the data to the child component this will take the user to the match route for showing all the match played by the selected team
                         })
