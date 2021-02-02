@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>
+        <div v-show="isHide">
           <!-- Passing  team status data(sports) to the schedules component-->
           <!-- receiving event handler with team id -->
             <schedules :sports="sports" @getMatchData="getTeams"></schedules>
@@ -8,12 +8,17 @@
         </div>
 
 
-        <div>
+        <div >
            <!-- Passing  all the matches played by a team data(allMatches) to the TeamMatches component -->
             <teammatches :allMatches="allMatches">
             </teammatches>  
           </div> 
+
+          
       </div>
+
+
+
 
 </template>
 
@@ -25,6 +30,7 @@
         components: {
             schedules,
             teammatches,
+            
 
         },
         data() {
@@ -32,6 +38,8 @@
                 sports: [],
                 allMatches: [],
                 isLoading: false,
+                isHide: true,
+                
 
             }
         },
@@ -79,7 +87,6 @@
 
         methods: {
             async getTeams(id) { //API called for the team matches data 
-                //  this.$router.push('/matches')
                 this.isLoading = true
                 try {
                     const teamId = id
@@ -134,7 +141,7 @@
                                 }
 
                             })
-                              // this.$route.push('/team-matches')
+                              this.$route.push('/team-matches')
                             
                             // after pushing the data to the child component this will take the user to the match route for showing all the match played by the selected team
                         })
@@ -142,7 +149,7 @@
                 } catch (error) {
                     console.log(error.message);
                 }
-
+                this.isHide = false //Hide the schedule element
                 this.isLoading = false
             }
         },

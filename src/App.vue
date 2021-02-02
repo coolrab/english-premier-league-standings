@@ -3,7 +3,7 @@
     <v-app id="inspire">
         <!-- App bar with the logo -->
         <v-app-bar app color="#3F1052">
-            <v-app-bar-icon @click="goHome">
+            <v-app-bar-icon  @click="goHome">
                 <v-avatar>
                     <img src="epl.png" alt="English Premier League">
                 </v-avatar>
@@ -14,7 +14,6 @@
                 <p class="font-weight-regular grey--text">Season 2020-21</p>
             </v-toolbar-title>
         </v-app-bar>
-
         <v-main>
 
             <v-container fluid>
